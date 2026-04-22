@@ -6,6 +6,10 @@
 This project demonstrates how to host a static website using AWS cloud services. The website is deployed using Amazon S3 and delivered globally with low latency using Amazon CloudFront.
 
 
+## 🏗 Architecture
+User → CloudFront → S3 Bucket
+
+
 
 🚀 AWS Services Used
 
