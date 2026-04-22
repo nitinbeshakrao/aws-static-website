@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cloud Storage UI</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to top, #4facfe, #00f2fe);
+      color: white;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    header {
+      padding: 40px 20px;
+    }
+
+    .upload-box {
+      margin: 20px auto;
+      padding: 20px;
+      background: rgba(255,255,255,0.2);
+      width: 300px;
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
+    }
+
+    input {
+      width: 100%;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 8px;
+      background: white;
+      color: #0077ff;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background: #e6e6e6;
+    }
+
+    .status {
+      margin-top: 30px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      background: rgba(255,255,255,0.2);
+      margin: 5px auto;
+      width: 250px;
+      padding: 8px;
+      border-radius: 8px;
+    }
+
+    /* Cloud styles */
+    .cloud {
+      position: absolute;
+      background: white;
+      border-radius: 50px;
+      opacity: 0.8;
+    }
+
+    .cloud::before,
+    .cloud::after {
+      content: "";
+      position: absolute;
+      background: white;
+      border-radius: 50px;
+    }
+
+    .cloud1 {
+      width: 120px;
+      height: 60px;
+      top: 80px;
+      left: -150px;
+      animation: moveCloud 20s linear infinite;
+    }
+
+    .cloud1::before {
+      width: 60px;
+      height: 60px;
+      top: -20px;
+      left: 10px;
+    }
+
+    .cloud1::after {
+      width: 70px;
+      height: 70px;
+      top: -30px;
+      left: 50px;
+    }
+
+    .cloud2 {
+      width: 100px;
+      height: 50px;
+      top: 200px;
+      left: -200px;
+      animation: moveCloud 25s linear infinite;
+    }
+
+    .cloud3 {
+      width: 140px;
+      height: 70px;
+      top: 350px;
+      left: -250px;
+      animation: moveCloud 30s linear infinite;
+    }
+
+    @keyframes moveCloud {
+      from { transform: translateX(0); }
+      to { transform: translateX(150vw); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>☁️ My Cloud</h1>
+    <p>Simple Cloud Storage UI</p>
+  </header>
+
+  <section class="upload-box">
+    <input type="file" id="fileInput" />
+    <button onclick="uploadFile()">Upload</button>
+  </section>
+
+  <section class="status">
+    <h3>Uploaded Files</h3>
+    <ul id="fileList"></ul>
+  </section>
+
+  <!-- Clouds -->
+  <div class="cloud cloud1"></div>
+  <div class="cloud cloud2"></div>
+  <div class="cloud cloud3"></div>
+
+  <script>
+    function uploadFile() {
+      const input = document.getElementById("fileInput");
+      const fileList = document.getElementById("fileList");
+
+      if (input.files.length === 0) {
+        alert("Please select a file!");
+        return;
+      }
+
+      const fileName = input.files[0].name;
+
+      const li = document.createElement("li");
+      li.textContent = "☁️ " + fileName;
+
+      fileList.appendChild(li);
+
+      input.value = "";
+    }
+  </script>
+
+</body>
+</html>
