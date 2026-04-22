@@ -68,4 +68,4 @@ This project demonstrates how to host a static website using AWS cloud services.
 🙋‍♂️ Author
 
 Nitin Beshakrao
-(Add your GitHub profile link here)
+(https://github.com/nitinbeshakrao)
